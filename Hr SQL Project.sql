@@ -19,6 +19,13 @@ select gender, round(avg(ï»¿Age)) as Avg_Age from hr_1 group by gender;
 -- Avg Attrition Rate
 select concat(round((sum(case attrition when 'Yes' then 1 else 0 end)/count(*))*100,2),"%") as Avg_Attrition from hr_1 ;
 
+
+-- Department Wise Employees
+select Department,count(*) as Employees_count from hr_1
+group by Department 
+order by count(*) desc;
+
+
 ----------------------------------- KPI-1
 -- Departmeant wise Avg Attrition Rate
 select Department,concat(round((sum(case attrition when 'Yes' then 1 else 0 end)/count(*))*100,2),"%") as Avg_Attrition from hr_1
